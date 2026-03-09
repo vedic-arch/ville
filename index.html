@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedic Ville — Ancient Wisdom for Modern Life</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --saffron: #C47A2C;
+            --sand: #F6F1E7;
+            --gold: #E2B857;
+            --charcoal: #2C2C2C;
+            --warm-white: #FBF9F4;
+            --deep-brown: #5C4A2A;
+            --light-gold: rgba(226, 184, 87, 0.15);
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'DM Sans', -apple-system, Helvetica Neue, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--charcoal);
+            background-color: var(--warm-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ==================== SCROLLBAR ==================== */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--warm-white);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--saffron);
+            border-radius: 3px;
+        }
+
+        /* ==================== SELECTION ==================== */
+        ::selection {
+            background: var(--gold);
+            color: var(--charcoal);
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes rotateSlowly {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes lineExpand {
+            from { width: 0; }
+            to { width: 60px; }
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.15s; }
+        .reveal-delay-2 { transition-delay: 0.3s; }
+        .reveal-delay-3 { transition-delay: 0.45s; }
+        .reveal-delay-4 { transition-delay: 0.6s; }
+
+        /* ==================== NAVIGATION ==================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 clamp(24px, 4vw, 60px);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            animation: slideDown 1s ease forwards;
+        }
+        .nav.scrolled {
+            background: rgba(251, 249, 244, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(196, 122, 44, 0.08);
+            height: 70px;
+        }
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 1.65rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--charcoal);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s;
+        }
+        .nav-logo:hover {
+            color: var(--saffron);
+        }
+        .nav-logo-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-logo-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: clamp(20px, 3vw, 40px);
+            list-style: none;
+        }
+        .nav-links a {
+            font-family: var(--sans);
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+            position: relative;
+            padding: 4px 0;
+            transition: color 0.3s;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--saffron);
+            transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .nav-links a:hover {
+            color: var(--saffron);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-cta {
+            font-family: var(--sans) !important;
+            font-size: 0.78rem !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.1em !important;
+            text-transform: uppercase !important;
+            background: var(--charcoal);
+            color: var(--warm-white) !important;
+            padding: 12px 28px !important;
+            border-radius: 100px;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1) !important;
+        }
+        .nav-cta::after {
+            display: none !important;
+        }
+        .nav-cta:hover {
+            background: var(--saffron) !important;
+            color: #fff !important;
+            transform: translateY(-1px);
+        }
+
+        /* Mobile menu */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+        .nav-hamburger span {
+            width: 24px;
+            height: 1.5px;
+            background: var(--charcoal);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            transform-origin: center;
+        }
+        .nav-hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(4px, 5px);
+        }
+        .nav-hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(4px, -5px);
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--warm-white);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .mobile-menu.active {
+            display: flex;
+            opacity: 1;
+        }
+        .mobile-menu a {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .mobile-menu a:hover {
+            color: var(--saffron);
+        }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(160deg, #FBF9F4 0%, #F6F1E7 30%, #f0e6d2 60%, #eadbc4 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 12s ease infinite;
+        }
+        .hero-bg-elements {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .hero-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(196, 122, 44, 0.08);
+        }
+        .hero-circle-1 {
+            width: 600px;
+            height: 600px;
+            top: -100px;
+            right: -200px;
+            animation: breathe 8s ease-in-out infinite;
+        }
+        .hero-circle-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -50px;
+            left: -100px;
+            animation: breathe 6s ease-in-out infinite 1s;
+        }
+        .hero-circle-3 {
+            width: 200px;
+            height: 200px;
+            top: 30%;
+            left: 10%;
+            animation: breathe 10s ease-in-out infinite 2s;
+        }
+        .hero-mandala {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            right: -150px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.04;
+            animation: rotateSlowly 120s linear infinite;
+        }
+        .hero-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(226, 184, 87, 0.12) 0%, transparent 70%);
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: breathe 10s ease-in-out infinite;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 24px;
+        }
+        .hero-eyebrow {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--saffron);
+            margin-bottom: 28px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+        .hero-eyebrow::before, .hero-eyebrow::after {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--saffron);
+            opacity: 0.5;
+        }
+        .hero-title {
+            font-family: var(--serif);
+            font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--charcoal);
+            margin-bottom: 28px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+            letter-spacing: -0.02em;
+        }
+        .hero-title em {
+            font-style: italic;
+            color: var(--saffron);
+            font-weight: 400;
+        }
+        .hero-subtitle {
+            font-family: var(--sans);
+            font-size: clamp(1rem, 1.5vw, 1.18rem);
+            font-weight: 300;
+            color: rgba(44, 44, 44, 0.7);
+            max-width: 560px;
+            margin: 0 auto 48px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
+        }
+        .hero-ctas {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+        .btn-primary {
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            background: var(--charcoal);
+            color: var(--warm-white);
+            padding: 18px 40px;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary:hover {
+            background: var(--saffron);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(196, 122, 44, 0.25);
+        }
+        .btn-primary svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s;
+        }
+        .btn-primary:hover svg {
+            transform: translateX(3px);
+        }
+        .btn-secondary {
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            background: transparent;
+            color: var(--charcoal);
+            padding: 18px 40px;
+            border: 1.5px solid rgba(44, 44, 44, 0.2);
+            border-radius: 100px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .btn-secondary:hover {
+            border-color: var(--saffron);
+            color: var(--saffron);
+            transform: translateY(-2px);
+        }
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.5s forwards;
+        }
+        .hero-scroll span {
+            font-family: var(--sans);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(44, 44, 44, 0.4);
+        }
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--saffron), transparent);
+            animation: breathe 2s ease-in-out infinite;
+        }
+
+        /* ==================== SECTION COMMON ==================== */
+        section {
+            padding: clamp(80px, 10vw, 140px) clamp(24px, 5vw, 80px);
+        }
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-eyebrow {
+            font-family: var(--sans);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--saffron);
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 300;
+            line-height: 1.2;
+            color: var(--charcoal);
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+        .section-title em {
+            font-style: italic;
+            color: var(--saffron);
+        }
+        .section-subtitle {
+            font-family: var(--sans);
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: rgba(44, 44, 44, 0.65);
+            line-height: 1.8;
+            max-width: 620px;
+        }
+        .section-divider {
+            width: 60px;
+            height: 1.5px;
+            background: linear-gradient(to right, var(--saffron), var(--gold));
+            margin: 20px 0;
+            border: none;
+        }
+        .section-divider-center {
+            margin: 20px auto;
+        }
+
+        /* ==================== PROBLEM SECTION ==================== */
+        .problem {
+            background: var(--sand);
+            position: relative;
+        }
+        .problem-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(40px, 6vw, 100px);
+            align-items: center;
+        }
+        .problem-text .section-subtitle {
+            margin-bottom: 32px;
+        }
+        .problem-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .problem-stat {
+            padding: 28px;
+            background: rgba(251, 249, 244, 0.7);
+            border-radius: 16px;
+            border: 1px solid rgba(196, 122, 44, 0.06);
+        }
+        .problem-stat-number {
+            font-family: var(--serif);
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--saffron);
+            margin-bottom: 6px;
+        }
+        .problem-stat-label {
+            font-family: var(--sans);
+            font-size: 0.82rem;
+            color: rgba(44, 44, 44, 0.6);
+            line-height: 1.5;
+        }
+        .problem-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .problem-image-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/5;
+            border-radius: 24px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8ddd0, #d4c4ae);
+        }
+        .problem-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(196, 122, 44, 0.1));
+        }
+        .problem-image-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--serif);
+            font-size: 6rem;
+            opacity: 0.15;
+            color: var(--saffron);
+        }
+
+        /* ==================== VEDIC LIVING ==================== */
+        .vedic-living {
+            text-align: center;
+        }
+        .vedic-living .section-subtitle {
+            margin: 0 auto 64px;
+        }
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .pillar {
+            padding: 48px 36px;
+            border-radius: 20px;
+            border: 1px solid rgba(196, 122, 44, 0.08);
+            background: rgba(246, 241, 231, 0.4);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .pillar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--saffron), var(--gold));
+            transform: scaleX(0);
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            transform-origin: left;
+        }
+        .pillar:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(196, 122, 44, 0.08);
+            border-color: rgba(196, 122, 44, 0.15);
+        }
+        .pillar:hover::before {
+            transform: scaleX(1);
+        }
+        .pillar-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(196, 122, 44, 0.08), rgba(226, 184, 87, 0.08));
+        }
+        .pillar-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--saffron);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .pillar-title {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 16px;
+        }
+        .pillar-text {
+            font-family: var(--sans);
+            font-size: 0.92rem;
+            font-weight: 300;
+            color: rgba(44, 44, 44, 0.6);
+            line-height: 1.7;
+        }
+
+        /* ==================== PRODUCTS ==================== */
+        .products {
+            background: var(--sand);
+        }
+        .products-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+        .product-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--warm-white);
+            border: 1px solid rgba(196, 122, 44, 0.06);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            cursor: pointer;
+            position: relative;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 60px rgba(44, 44, 44, 0.08);
+        }
+        .product-image {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #ede6da, #ddd3c3);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-image-icon {
+            font-size: 3.5rem;
+            opacity: 0.35;
+            transition: all 0.5s;
+        }
+        .product-card:hover .product-image-icon {
+            transform: scale(1.1);
+            opacity: 0.5;
+        }
+        .product-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            font-family: var(--sans);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: var(--warm-white);
+            color: var(--saffron);
+            padding: 6px 14px;
+            border-radius: 100px;
+        }
+        .product-info {
+            padding: 24px;
+        }
+        .product-category {
+            font-family: var(--sans);
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--saffron);
+            margin-bottom: 8px;
+        }
+        .product-name {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+        .product-desc {
+            font-family: var(--sans);
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: rgba(44, 44, 44, 0.55);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .product-price {
+            font-family: var(--sans);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .product-add {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(44, 44, 44, 0.15);
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .product-add:hover {
+            background: var(--charcoal);
+            border-color: var(--charcoal);
+        }
+        .product-add:hover svg {
+            stroke: var(--warm-white);
+        }
+        .product-add svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--charcoal);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* ==================== WISDOM/CONTENT ==================== */
+        .wisdom {
+            position: relative;
+        }
+        .wisdom-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        .wisdom-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 24px;
+        }
+        .wisdom-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--sand);
+            border: 1px solid rgba(196, 122, 44, 0.06);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            cursor: pointer;
+            position: relative;
+        }
+        .wisdom-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(44, 44, 44, 0.06);
+        }
+        .wisdom-card-featured {
+            grid-row: 1 / 3;
+        }
+        .wisdom-card-image {
+            height: 200px;
+            background: linear-gradient(135deg, #e0d5c5, #cdbfab);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            opacity: 0.3;
+        }
+        .wisdom-card-featured .wisdom-card-image {
+            height: 100%;
+            min-height: 300px;
+        }
+        .wisdom-card-content {
+            padding: 32px;
+        }
+        .wisdom-card-featured .wisdom-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(44, 44, 44, 0.85), transparent);
+            padding: 40px 32px;
+        }
+        .wisdom-card-tag {
+            font-family: var(--sans);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--saffron);
+            margin-bottom: 12px;
+        }
+        .wisdom-card-featured .wisdom-card-tag {
+            color: var(--gold);
+        }
+        .wisdom-card-title {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+        .wisdom-card-featured .wisdom-card-title {
+            color: #fff;
+            font-size: 1.6rem;
+        }
+        .wisdom-card-excerpt {
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: rgba(44, 44, 44, 0.55);
+            line-height: 1.6;
+        }
+        .wisdom-card-featured .wisdom-card-excerpt {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .wisdom-card-read {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--sans);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--saffron);
+            margin-top: 16px;
+            transition: gap 0.3s;
+        }
+        .wisdom-card:hover .wisdom-card-read {
+            gap: 10px;
+        }
+        .wisdom-card-featured .wisdom-card-read {
+            color: var(--gold);
+        }
+
+        /* ==================== MANIFESTATION ==================== */
+        .manifestation {
+            background: var(--charcoal);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .manifestation-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .manifestation-bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(226, 184, 87, 0.06);
+        }
+        .manifestation-bg-circle:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            top: -200px;
+            right: -100px;
+        }
+        .manifestation-bg-circle:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            bottom: -100px;
+            left: -50px;
+        }
+        .manifestation-inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(40px, 6vw, 100px);
+            align-items: center;
+        }
+        .manifestation .section-eyebrow {
+            color: var(--gold);
+        }
+        .manifestation .section-title {
+            color: #fff;
+        }
+        .manifestation .section-title em {
+            color: var(--gold);
+        }
+        .manifestation .section-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .manifestation-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .manifestation-step {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid rgba(226, 184, 87, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.4s;
+        }
+        .manifestation-step:hover {
+            border-color: rgba(226, 184, 87, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .manifestation-step-num {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1;
+            min-width: 36px;
+        }
+        .manifestation-step-title {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .manifestation-step-text {
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+        }
+
+        /* ==================== COMMUNITY ==================== */
+        .community {
+            background: var(--sand);
+            text-align: center;
+        }
+        .community .section-subtitle {
+            margin: 0 auto 60px;
+        }
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 250px 250px;
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+        .community-img {
+            border-radius: 16px;
+            background: linear-gradient(135deg, #ddd3c3, #cbbfae);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            opacity: 0.4;
+            transition: all 0.5s;
+            position: relative;
+        }
+        .community-img:hover {
+            opacity: 0.6;
+            transform: scale(0.98);
+        }
+        .community-img:nth-child(1) {
+            grid-column: 1 / 3;
+            grid-row: 1;
+        }
+        .community-img:nth-child(4) {
+            grid-column: 3 / 5;
+            grid-row: 2;
+        }
+        .community-quote {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .community-quote blockquote {
+            font-family: var(--serif);
+            font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--charcoal);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .community-quote cite {
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--saffron);
+            font-style: normal;
+        }
+
+        /* ==================== FINAL CTA ==================== */
+        .final-cta {
+            background: linear-gradient(160deg, var(--warm-white), var(--sand), #eadbc4);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .final-cta-bg {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .final-cta-circle {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 1px solid rgba(196, 122, 44, 0.06);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: breathe 8s ease-in-out infinite;
+        }
+        .final-cta-circle:nth-child(2) {
+            width: 600px;
+            height: 600px;
+            animation-delay: 1s;
+        }
+        .final-cta-circle:nth-child(3) {
+            width: 800px;
+            height: 800px;
+            animation-delay: 2s;
+        }
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        .final-cta .section-title {
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            margin-bottom: 20px;
+        }
+        .final-cta .section-subtitle {
+            margin: 0 auto 48px;
+            max-width: 520px;
+        }
+
+        /* ==================== NEWSLETTER ==================== */
+        .newsletter-form {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            max-width: 480px;
+            margin: 40px auto 0;
+        }
+        .newsletter-form input {
+            flex: 1;
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            padding: 16px 24px;
+            border: 1.5px solid rgba(44, 44, 44, 0.12);
+            border-radius: 100px;
+            background: var(--warm-white);
+            color: var(--charcoal);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .newsletter-form input::placeholder {
+            color: rgba(44, 44, 44, 0.35);
+        }
+        .newsletter-form input:focus {
+            border-color: var(--saffron);
+        }
+        .newsletter-form button {
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: var(--charcoal);
+            color: var(--warm-white);
+            padding: 17px 32px;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.4s;
+            white-space: nowrap;
+        }
+        .newsletter-form button:hover {
+            background: var(--saffron);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: var(--charcoal);
+            color: rgba(255, 255, 255, 0.7);
+            padding: clamp(60px, 8vw, 100px) clamp(24px, 5vw, 80px) 40px;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: clamp(32px, 4vw, 60px);
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .footer-brand-name {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .footer-brand-desc {
+            font-family: var(--sans);
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.7;
+            margin-bottom: 28px;
+            max-width: 280px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .footer-social a:hover {
+            border-color: var(--gold);
+            background: rgba(226, 184, 87, 0.1);
+        }
+        .footer-social a svg {
+            width: 16px;
+            height: 16px;
+            fill: rgba(255, 255, 255, 0.6);
+            transition: fill 0.3s;
+        }
+        .footer-social a:hover svg {
+            fill: var(--gold);
+        }
+        .footer-column h4 {
+            font-family: var(--sans);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 24px;
+        }
+        .footer-column ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .footer-column a {
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-bottom p {
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+        .footer-bottom-links a {
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-bottom-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ==================== LINK STYLE ==================== */
+        .text-link {
+            font-family: var(--sans);
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--saffron);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+        .text-link:hover {
+            gap: 12px;
+        }
+        .text-link svg {
+            width: 14px;
+            height: 14px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .wisdom-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .wisdom-card-featured {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+            .wisdom-card-featured .wisdom-card-image {
+                min-height: 250px;
+            }
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-hamburger {
+                display: flex;
+            }
+            .hero-title {
+                font-size: clamp(2.2rem, 8vw, 3.5rem);
+            }
+            .problem-inner {
+                grid-template-columns: 1fr;
+            }
+            .problem-visual {
+                order: -1;
+            }
+            .problem-image-wrapper {
+                aspect-ratio: 16/9;
+            }
+            .pillars {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .products-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .wisdom-grid {
+                grid-template-columns: 1fr;
+            }
+            .manifestation-inner {
+                grid-template-columns: 1fr;
+            }
+            .community-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 180px 180px 180px;
+            }
+            .community-img:nth-child(1) {
+                grid-column: 1 / -1;
+            }
+            .community-img:nth-child(4) {
+                grid-column: 1 / -1;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+            }
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .hero-ctas {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 20px;
+            }
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .problem-stats {
+                grid-template-columns: 1fr;
+            }
+            .products-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* ==================== PAGE LOADER ==================== */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--warm-white);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 24px;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-text {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            letter-spacing: 0.05em;
+        }
+        .loader-bar {
+            width: 120px;
+            height: 2px;
+            background: rgba(196, 122, 44, 0.15);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .loader-bar-inner {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(to right, var(--saffron), var(--gold));
+            border-radius: 2px;
+            animation: loaderFill 1.5s ease forwards;
+        }
+        @keyframes loaderFill {
+            to { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-text">Vedic Ville</div>
+        <div class="loader-bar">
+            <div class="loader-bar-inner"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-logo">
+            <div class="nav-logo-icon">
+                <svg viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" stroke="#C47A2C" stroke-width="1"/>
+                    <circle cx="20" cy="20" r="12" stroke="#C47A2C" stroke-width="0.8" opacity="0.6"/>
+                    <circle cx="20" cy="20" r="6" stroke="#C47A2C" stroke-width="0.6" opacity="0.4"/>
+                    <circle cx="20" cy="20" r="2" fill="#C47A2C" opacity="0.8"/>
+                    <line x1="20" y1="2" x2="20" y2="38" stroke="#C47A2C" stroke-width="0.4" opacity="0.3"/>
+                    <line x1="2" y1="20" x2="38" y2="20" stroke="#C47A2C" stroke-width="0.4" opacity="0.3"/>
+                </svg>
+            </div>
+            Vedic Ville
+        </a>
+        <ul class="nav-links">
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#wisdom">Wisdom</a></li>
+            <li><a href="#rituals">Rituals</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#journey" class="nav-cta">Begin Journey</a></li>
+        </ul>
+        <div class="nav-hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#philosophy" onclick="closeMobile()">Philosophy</a>
+        <a href="#shop" onclick="closeMobile()">Shop</a>
+        <a href="#wisdom" onclick="closeMobile()">Wisdom</a>
+        <a href="#rituals" onclick="closeMobile()">Rituals</a>
+        <a href="#community" onclick="closeMobile()">Community</a>
+        <a href="#journey" onclick="closeMobile()">Begin Journey</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-elements">
+            <div class="hero-circle hero-circle-1"></div>
+            <div class="hero-circle hero-circle-2"></div>
+            <div class="hero-circle hero-circle-3"></div>
+            <div class="hero-glow"></div>
+            <div class="hero-mandala">
+                <svg viewBox="0 0 400 400" fill="none">
+                    <circle cx="200" cy="200" r="195" stroke="#C47A2C" stroke-width="0.5"/>
+                    <circle cx="200" cy="200" r="160" stroke="#C47A2C" stroke-width="0.5"/>
+                    <circle cx="200" cy="200" r="125" stroke="#C47A2C" stroke-width="0.5"/>
+                    <circle cx="200" cy="200" r="90" stroke="#C47A2C" stroke-width="0.5"/>
+                    <circle cx="200" cy="200" r="55" stroke="#C47A2C" stroke-width="0.5"/>
+                    <circle cx="200" cy="200" r="20" stroke="#C47A2C" stroke-width="0.5"/>
+                    <line x1="200" y1="5" x2="200" y2="395" stroke="#C47A2C" stroke-width="0.3"/>
+                    <line x1="5" y1="200" x2="395" y2="200" stroke="#C47A2C" stroke-width="0.3"/>
+                    <line x1="62" y1="62" x2="338" y2="338" stroke="#C47A2C" stroke-width="0.3"/>
+                    <line x1="338" y1="62" x2="62" y2="338" stroke="#C47A2C" stroke-width="0.3"/>
+                    <path d="M200 5 L250 200 L200 395 L150 200 Z" stroke="#C47A2C" stroke-width="0.3" fill="none"/>
+                    <path d="M5 200 L200 150 L395 200 L200 250 Z" stroke="#C47A2C" stroke-width="0.3" fill="none"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-eyebrow">Vedic Wisdom for the Modern Soul</div>
+            <h1 class="hero-title">Ancient Wisdom<br>for <em>Modern Life</em></h1>
+            <p class="hero-subtitle">Simple Vedic practices to bring clarity, balance, and calm into your everyday life — rooted in five thousand years of timeless knowledge.</p>
+            <div class="hero-ctas">
+                <a href="#philosophy" class="btn-primary">
+                    Explore Vedic Living
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#rituals" class="btn-secondary">Begin Your Daily Ritual</a>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+        <div class="section-container">
+            <div class="problem-inner">
+                <div class="problem-text">
+                    <div class="section-eyebrow reveal">The Modern Paradox</div>
+                    <h2 class="section-title reveal reveal-delay-1">Modern life pulls us<br>out of <em>alignment</em>.</h2>
+                    <hr class="section-divider reveal reveal-delay-1">
+                    <p class="section-subtitle reveal reveal-delay-2">We live in an age of infinite connection yet feel profoundly disconnected — from our bodies, from nature, from the rhythms that once governed a meaningful life. The noise of notifications, the weight of over-stimulation, the relentless pace — all pull us further from our center.</p>
+                    <p class="section-subtitle reveal reveal-delay-2" style="margin-top: 16px;">Vedic wisdom offers a timeless antidote. Not as an escape from modern life, but as a framework to live it with deeper intention, clarity, and peace.</p>
+
+                    <div class="problem-stats reveal reveal-delay-3">
+                        <div class="problem-stat">
+                            <div class="problem-stat-number">77%</div>
+                            <div class="problem-stat-label">of people experience stress that affects their physical health</div>
+                        </div>
+                        <div class="problem-stat">
+                            <div class="problem-stat-number">5,000+</div>
+                            <div class="problem-stat-label">years of proven Vedic practices for mind-body harmony</div>
+                        </div>
+                        <div class="problem-stat">
+                            <div class="problem-stat-number">8 min</div>
+                            <div class="problem-stat-label">is all you need daily to begin transforming your inner landscape</div>
+                        </div>
+                        <div class="problem-stat">
+                            <div class="problem-stat-number">∞</div>
+                            <div class="problem-stat-label">the timeless relevance of wisdom rooted in universal truth</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="problem-visual reveal reveal-delay-2">
+                    <div class="problem-image-wrapper">
+                        <div class="problem-image-inner">
+                            <svg width="180" height="180" viewBox="0 0 180 180" fill="none" opacity="0.5">
+                                <circle cx="90" cy="90" r="85" stroke="#C47A2C" stroke-width="0.8"/>
+                                <circle cx="90" cy="90" r="60" stroke="#C47A2C" stroke-width="0.8"/>
+                                <circle cx="90" cy="90" r="35" stroke="#C47A2C" stroke-width="0.8"/>
+                                <circle cx="90" cy="90" r="10" fill="#C47A2C" opacity="0.3"/>
+                                <path d="M90 5 Q120 90 90 175 Q60 90 90 5Z" stroke="#C47A2C" stroke-width="0.6" fill="none"/>
+                                <path d="M5 90 Q90 60 175 90 Q90 120 5 90Z" stroke="#C47A2C" stroke-width="0.6" fill="none"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Vedic Living -->
+    <section class="vedic-living" id="philosophy">
+        <div class="section-container">
+            <div class="section-eyebrow reveal">The Three Pillars</div>
+            <h2 class="section-title reveal reveal-delay-1">What is <em>Vedic Living</em>?</h2>
+            <hr class="section-divider section-divider-center reveal reveal-delay-1">
+            <p class="section-subtitle reveal reveal-delay-2">Vedic living is the art of aligning your daily life with the natural intelligence that governs the universe. It is not religion — it is a science of consciousness, refined over millennia, for anyone seeking a life of balance, purpose, and inner peace.</p>
+
+            <div class="pillars">
+                <div class="pillar reveal reveal-delay-1">
+                    <div class="pillar-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                    </div>
+                    <h3 class="pillar-title">Daily Rituals</h3>
+                    <p class="pillar-text">Sacred morning and evening practices — from Surya Namaskar to Sandhyavandana — that anchor your day in intention and awareness. Small rituals, profound transformation.</p>
+                </div>
+                <div class="pillar reveal reveal-delay-2">
+                    <div class="pillar-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                            <path d="M12 2c-2.76 0-5 4.48-5 10s2.24 10 5 10"/>
+                            <path d="M12 2c2.76 0 5 4.48 5 10s-2.24 10-5 10"/>
+                            <path d="M2 12h20"/>
+                        </svg>
+                    </div>
+                    <h3 class="pillar-title">Mind-Body Wellness</h3>
+                    <p class="pillar-text">Ayurvedic nutrition, pranayama breathwork, and yoga asanas — a holistic system that treats the body as a temple and the mind as its most sacred instrument.</p>
+                </div>
+                <div class="pillar reveal reveal-delay-3">
+                    <div class="pillar-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="pillar-title">Spiritual Simplicity</h3>
+                    <p class="pillar-text">Meditation, mantra, and mindful awareness — the Vedic path strips away complexity to reveal the profound simplicity at the heart of existence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products" id="shop">
+        <div class="section-container">
+            <div class="products-header">
+                <div>
+                    <div class="section-eyebrow reveal">The Collection</div>
+                    <h2 class="section-title reveal reveal-delay-1">Tools for <em>Sacred Living</em></h2>
+                    <hr class="section-divider reveal reveal-delay-1">
+                </div>
+                <a href="#" class="text-link reveal reveal-delay-2">
+                    View All Products
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+            <div class="products-grid">
+                <div class="product-card reveal reveal-delay-1">
+                    <div class="product-image">
+                        <div class="product-image-icon">📿</div>
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Sacred Jewelry</div>
+                        <div class="product-name">Himalayan Rudraksha Mala</div>
+                        <div class="product-desc">108-bead meditation mala with authentic 5-Mukhi Rudraksha seeds, hand-knotted on silk thread.</div>
+                        <div class="product-price">
+                            $89
+                            <button class="product-add" aria-label="Add to cart">
+                                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card reveal reveal-delay-2">
+                    <div class="product-image">
+                        <div class="product-image-icon">🪷</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Meditation</div>
+                        <div class="product-name">Zafu Meditation Cushion</div>
+                        <div class="product-desc">Organic buckwheat-filled cushion in undyed linen. Designed for comfort during extended practice.</div>
+                        <div class="product-price">
+                            $68
+                            <button class="product-add" aria-label="Add to cart">
+                                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card reveal reveal-delay-3">
+                    <div class="product-image">
+                        <div class="product-image-icon">🕯️</div>
+                        <span class="product-badge">New</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Ritual Items</div>
+                        <div class="product-name">Sandalwood & Ghee Diya Set</div>
+                        <div class="product-desc">Hand-crafted brass diya set with pure sandalwood ghee wicks for daily lamp rituals.</div>
+                        <div class="product-price">
+                            $54
+                            <button class="product-add" aria-label="Add to cart">
+                                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card reveal reveal-delay-4">
+                    <div class="product-image">
+                        <div class="product-image-icon">🌿</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Wellness</div>
+                        <div class="product-name">Ayurvedic Morning Kit</div>
+                        <div class="product-desc">Copper tongue scraper, neem comb, and organic Triphala — your daily Dinacharya essentials.</div>
+                        <div class="product-price">
+                            $42
+                            <button class="product-add" aria-label="Add to cart">
+                                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content & Wisdom -->
+    <section class="wisdom" id="wisdom">
+        <div class="section-container">
+            <div class="wisdom-header">
+                <div>
+                    <div class="section-eyebrow reveal">Knowledge & Practice</div>
+                    <h2 class="section-title reveal reveal-delay-1">Wisdom for <em>Every Day</em></h2>
+                    <hr class="section-divider reveal reveal-delay-1">
+                </div>
+                <a href="#" class="text-link reveal reveal-delay-2">
+                    Explore All Articles
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+            <div class="wisdom-grid">
+                <div class="wisdom-card wisdom-card-featured reveal">
+                    <div class="wisdom-card-image" style="background: linear-gradient(135deg, #c9b896, #a69070);">
+                        <span style="font-size: 4rem;">🌅</span>
+                    </div>
+                    <div class="wisdom-card-content">
+                        <div class="wisdom-card-tag">Featured Guide</div>
+                        <div class="wisdom-card-title">The Complete Guide to Dinacharya: Designing Your Vedic Morning Ritual</div>
+                        <div class="wisdom-card-excerpt">How to structure the first two hours of your day according to Ayurvedic principles for lasting energy and mental clarity.</div>
+                        <div class="wisdom-card-read">
+                            Read Guide
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="wisdom-card reveal reveal-delay-1">
+                    <div class="wisdom-card-image">
+                        <span>🧘</span>
+                    </div>
+                    <div class="wisdom-card-content">
+                        <div class="wisdom-card-tag">Meditation</div>
+                        <div class="wisdom-card-title">Nadi Shodhana: The Breathwork Practice That Rewires Your Nervous System</div>
+                        <div class="wisdom-card-excerpt">Alternate nostril breathing isn't just calming — science shows it balances your brain hemispheres.</div>
+                        <div class="wisdom-card-read">
+                            Read Article
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="wisdom-card reveal reveal-delay-2">
+                    <div class="wisdom-card-image">
+                        <span>🍵</span>
+                    </div>
+                    <div class="wisdom-card-content">
+                        <div class="wisdom-card-tag">Ayurveda</div>
+                        <div class="wisdom-card-title">Eating for Your Dosha: A Modern Guide to Ayurvedic Nutrition</div>
+                        <div class="wisdom-card-excerpt">Discover your constitutional type and the foods that bring you into natural balance.</div>
+                        <div class="wisdom-card-read">
+                            Read Article
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="wisdom-card reveal reveal-delay-3">
+                    <div class="wisdom-card-image">
+                        <span>🔔</span>
+                    </div>
+                    <div class="wisdom-card-content">
+                        <div class="wisdom-card-tag">Mantra</div>
+                        <div class="wisdom-card-title">The Science of Mantra: How Sacred Sound Transforms Consciousness</div>
+                        <div class="wisdom-card-excerpt">From Gayatri to Om — how vibrational frequencies measured in labs match ancient claims.</div>
+                        <div class="wisdom-card-read">
+                            Read Article
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="wisdom-card reveal reveal-delay-4">
+                    <div class="wisdom-card-image">
+                        <span>🌙</span>
+                    </div>
+                    <div class="wisdom-card-content">
+                        <div class="wisdom-card-tag">Ritual</div>
+                        <div class="wisdom-card-title">Evening Rituals: The Vedic Art of Closing Your Day with Intention</div>
+                        <div class="wisdom-card-excerpt">Wind-down practices for deep sleep: from Yoga Nidra to gratitude Sankalpa.</div>
+                        <div class="wisdom-card-read">
+                            Read Article
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manifestation & Conscious Living -->
+    <section class="manifestation" id="rituals">
+        <div class="manifestation-bg">
+            <div class="manifestation-bg-circle"></div>
+            <div class="manifestation-bg-circle"></div>
+        </div>
+        <div class="section-container">
+            <div class="manifestation-inner">
+                <div>
+                    <div class="section-eyebrow reveal">Alignment & Manifestation</div>
+                    <h2 class="section-title reveal reveal-delay-1">Live in <em>Alignment</em>,<br>Manifest with Clarity</h2>
+                    <hr class="section-divider reveal reveal-delay-1" style="background: linear-gradient(to right, var(--gold), transparent);">
+                    <p class="section-subtitle reveal reveal-delay-2">In the Vedic worldview, manifestation isn't wishful thinking — it's the natural consequence of living in alignment with Dharma, your unique purpose. When your thoughts, words, and actions harmonize, reality responds.</p>
+                    <p class="section-subtitle reveal reveal-delay-2" style="margin-top: 16px;">This isn't magic. It's the oldest technology of consciousness, refined over millennia and now validated by quantum physics, neuroscience, and psychology.</p>
+                </div>
+                <div class="manifestation-steps">
+                    <div class="manifestation-step reveal reveal-delay-1">
+                        <div class="manifestation-step-num">01</div>
+                        <div>
+                            <div class="manifestation-step-title">Purify — Shuddhi</div>
+                            <div class="manifestation-step-text">Clear mental and physical toxins through daily Kriyas, Pranayama, and Sattvic nutrition. A clean vessel channels energy without distortion.</div>
+                        </div>
+                    </div>
+                    <div class="manifestation-step reveal reveal-delay-2">
+                        <div class="manifestation-step-num">02</div>
+                        <div>
+                            <div class="manifestation-step-title">Align — Sankalpa</div>
+                            <div class="manifestation-step-text">Set intentions rooted in your deepest truth. Vedic Sankalpa practice aligns your willpower with the intelligence of the cosmos.</div>
+                        </div>
+                    </div>
+                    <div class="manifestation-step reveal reveal-delay-3">
+                        <div class="manifestation-step-num">03</div>
+                        <div>
+                            <div class="manifestation-step-title">Surrender — Ishvara Pranidhana</div>
+                            <div class="manifestation-step-text">Release attachment to outcomes. The deepest manifestation happens when personal effort meets universal grace — in the space between effort and ease.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community & Lifestyle -->
+    <section class="community" id="community">
+        <div class="section-container">
+            <div class="section-eyebrow reveal">The Vedic Ville Community</div>
+            <h2 class="section-title reveal reveal-delay-1">A Lifestyle, Not <em>Just a Store</em></h2>
+            <hr class="section-divider section-divider-center reveal reveal-delay-1">
+            <p class="section-subtitle reveal reveal-delay-2">Join thousands of modern seekers building lives of intention, balance, and conscious evolution. This is a community united by the timeless question: <em>How can I live more fully?</em></p>
+
+            <div class="community-grid reveal reveal-delay-2">
+                <div class="community-img" style="background: linear-gradient(135deg, #d4c4ae, #bfae96);">
+                    <span>🧘‍♀️ Morning Practice</span>
+                </div>
+                <div class="community-img" style="background: linear-gradient(135deg, #c9b89a, #b5a384);">
+                    <span>📖 Journaling</span>
+                </div>
+                <div class="community-img" style="background: linear-gradient(135deg, #c2b5a0, #a99882);">
+                    <span>🌿 Nature</span>
+                </div>
+                <div class="community-img" style="background: linear-gradient(135deg, #d0c3ad, #baab93);">
+                    <span>🕊️ Meditation Retreat</span>
+                </div>
+            </div>
+
+            <div class="community-quote reveal">
+                <blockquote>"Vedic Ville didn't just sell me a mala — it gave me a morning. A practice. A sense of returning home to myself every single day."</blockquote>
+                <cite>— Priya M., Community Member</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="journey">
+        <div class="final-cta-bg">
+            <div class="final-cta-circle"></div>
+            <div class="final-cta-circle"></div>
+            <div class="final-cta-circle"></div>
+        </div>
+        <div class="section-container">
+            <div class="final-cta-content">
+                <div class="section-eyebrow reveal" style="text-align:center;">Your Path Begins Here</div>
+                <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">Start Your Journey <em>Inward</em></h2>
+                <hr class="section-divider section-divider-center reveal reveal-delay-1">
+                <p class="section-subtitle reveal reveal-delay-2" style="text-align:center;">The outer world is a reflection of the inner. Transform your inner landscape, and watch everything shift. Begin with one breath. One practice. One moment of stillness.</p>
+                <div style="text-align:center;" class="reveal reveal-delay-3">
+                    <a href="#" class="btn-primary" style="margin-top: 8px;">
+                        Discover Vedic Ville
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <form class="newsletter-form reveal reveal-delay-4" onsubmit="return false;">
+                    <input type="email" placeholder="Enter your email for daily Vedic wisdom" aria-label="Email for newsletter">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div>
+                    <div class="footer-brand-name">Vedic Ville</div>
+                    <p class="footer-brand-desc">Ancient wisdom, beautifully simplified for modern living. Reconnect with your truest self.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Pinterest">
+                            <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Newsletter">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Philosophy</a></li>
+                        <li><a href="#">The Vedic Path</a></li>
+                        <li><a href="#">Impact & Mission</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Practice</h4>
+                    <ul>
+                        <li><a href="#">Daily Rituals</a></li>
+                        <li><a href="#">Guided Meditations</a></li>
+                        <li><a href="#">Breathwork Library</a></li>
+                        <li><a href="#">Wisdom Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">Rudraksha Malas</a></li>
+                        <li><a href="#">Meditation Tools</a></li>
+                        <li><a href="#">Ritual Items</a></li>
+                        <li><a href="#">Wellness Essentials</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Vedic Ville. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Shipping & Returns</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== PAGE LOADER ====================
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1800);
+        });
+
+        // ==================== SCROLL REVEAL ====================
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -60px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ==================== NAVBAR SCROLL ====================
+        const nav = document.getElementById('nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 80) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // ==================== MOBILE MENU ====================
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        function closeMobile() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ==================== SMOOTH ANCHOR SCROLL ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offset = 80;
+                    const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ==================== PARALLAX ON HERO ====================
+        const heroContent = document.querySelector('.hero-content');
+        const heroMandala = document.querySelector('.hero-mandala');
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            if (scrolled < window.innerHeight) {
+                const factor = scrolled * 0.3;
+                heroContent.style.transform = `translateY(${factor}px)`;
+                heroContent.style.opacity = 1 - (scrolled / window.innerHeight);
+                if (heroMandala) {
+                    heroMandala.style.transform = `translateY(calc(-50% + ${scrolled * 0.15}px))`;
+                }
+            }
+        });
+
+        // ==================== PRODUCT CARD TILT ====================
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 30;
+                const rotateY = (centerX - x) / 30;
+                card.style.transform = `translateY(-6px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>
