@@ -1,2 +1,2 @@
 # ville
-Vedic Ville page
+This is the home of Vedas
